@@ -1,59 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
 
 import {
   Colors,
-  DebugInstructions,
   Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import { register } from '@ionic/portals-react-native';
+import { Home } from './components/Home';
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+register(
+  'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNzI4MmZkMS03OGIyLTQwZDAtOGVlZS1iNWMwZDRlNTRiY2QiLCJqdGkiOiJUUkIyc0w2V2hwXy14VXp2ZUJmS1JKcmpnVHVVNUFzdzFENW0ySDNkd2FjIn0.jtRAXXr7t47xa3M-K7ivBxXDI4uCr2lIu4tWNDz4KLDyZyulCYytiqXLzKI0qTJ2E6NffhMcsdr_uJwAI5lEoJndY3_JCDIk12tjJ4J6k6I_ISo1Jl7DofSdVsznFgQ9Ed3Wgt4yKFWIbbXxiMJ_1sJJlR0OdbQYTKiCMt4sEXFf_xAiL9TSWQkCNubq06rY0xrTw3p7b0eG3xIwmzNYJZ_q6vM6P0HWNq4tFjAd-yfdBVi8CFhUrxxBcHDZxdrVy10lI1XiLkmQkpu4yyowdgk8DdqQZ1we4Mjk_bzrmZHf6Eh5CqY1OFGNMb_x0-yfFqNfxOT9oSTJAH83_elZTA',
+);
+
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -76,43 +42,11 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+            <Home/>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
